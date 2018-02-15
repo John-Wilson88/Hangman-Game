@@ -22,7 +22,7 @@ var wrongGuesses = [];
 var underscores = [];
 
 
-
+//fills the underscores array with underscores, same number as letters in the random word.
 function displayUnderscores() {
 
 for (i = 0; i < word.length; i++) {
@@ -33,17 +33,28 @@ for (i = 0; i < word.length; i++) {
 
 }
 
+
+// event listener that listen for a key press the start and the game, and accepts the users input.
 document.addEventListener("keypress",  function(x) {
 
+
+	// a variable array that is the same length as underscores array
 	var beginingUnderscores = underscores;
 
+	// displays that new array so the user can start guessing letters
 	document.getElementById("randomUnderscores").innerHTML = beginingUnderscores;
 
+	// takes the keypress and stores it in a variable
 	var userGuess = x.key;
-	console.log(userGuess);
 
+	// displayes the users guess in the page, only displays the current guess
+	document.getElementById("currentGuess").innerHTML = userGuess;
+
+	//console.log(userGuess);
+
+	//
 	if (word.includes(userGuess)) {
-		console.log("correct");
+		//console.log("correct");
 
 		if(correctGuesses.includes(userGuess)) {
 			return;
@@ -67,20 +78,20 @@ document.addEventListener("keypress",  function(x) {
 
 		}
 
-		document.getElementById("randomUnderscores").innerHTML = underscores;
+	document.getElementById("randomUnderscores").innerHTML = underscores;
 
 	}
 
 	else {
 
-		if (num >= 1) {		
+		if (num > 1) {		
 
 			if(wrongGuesses.includes(userGuess)) {
 				return;
 			}
 
 			else {
-				console.log("incorrect");
+				//console.log("incorrect");
 				wrongGuesses.push(userGuess);
 			
 				document.getElementById("badGuesses").innerHTML = wrongGuesses;
@@ -93,7 +104,7 @@ document.addEventListener("keypress",  function(x) {
 		}
 
 		else {
-			alert("you loser...");
+			alert("GAME OVER, click OK play again!");
 			document.addEventListener("click", location.reload());
 
 		}
@@ -104,4 +115,4 @@ document.addEventListener("keypress",  function(x) {
 
 displayUnderscores();
 
-
+//final commit3.0 comment...

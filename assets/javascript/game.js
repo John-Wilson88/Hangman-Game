@@ -8,6 +8,7 @@ var wins = 0;
 var tries = 10;
 //var currentWord = " ";
 
+//commit comments
 
 
 //functions
